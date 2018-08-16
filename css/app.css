@@ -1,0 +1,288 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 5em;
+}
+h2{
+    font-family: 'Kirang Haerang', cursive;
+}
+
+
+/*Styles for the deck of cards*/
+
+
+.deck {
+    width: 85%;
+    background: #716F71;
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    background: #141214;;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #E5F720;
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.deck .card.unmatched {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    background: #e2043b;
+}
+
+.deck .card.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+
+.score-panel {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+.fa-star {
+    color: #FFD700;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+  
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 100 !important;
+}
+
+#starRating li {
+    display: inline-block;
+}
+
+#play-again {
+    background-color: #141214;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+
+/* animations */
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+
+    to {
+        transform: perspective(400px);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/*Media queries*/
+
+
+@media (max-width: 320px) {
+    .deck {
+        width: 85%;
+    }
+
+    .deck .card {
+        height: 4.7rem;
+        width: 4.7rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        font-size: 22px;
+    }
+
+    .deck {
+        width: 660px;
+        height: 680px;
+    }
+
+    .deck .card {
+        height: 125px;
+        width: 125px;
+    }
+
+    .popup {
+        width: 60%;
+    }
+}
