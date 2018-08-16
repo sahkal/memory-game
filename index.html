@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+</head>
+<body class="yellow lighten-3">
+
+    <div class="container">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+
+        <!-- The Score Panel -->
+        <section class="score-panel">
+        	<ul class="stars">
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        	</ul>
+
+        	<span class="moves">0</span> Moves
+
+            <span class="timer">0:00</span>
+
+            <div class="restart">
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <!-- Main Game Panel -->
+        <ul class="deck card-panel hoverable blue lighten-3 wow rubberBand" id="card-deck">
+            <li class="card hoverable">
+                <i class="fa fa-gem"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-plane"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-cube"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-gem"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-plane"></i>
+            </li>
+            <li class="card hoverable">
+                <i class="fa fa-cube"></i>
+            </li>
+        </ul>
+
+        <!-- The Win Modal -->
+        <div id="win-modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <p>Congratulations! You Won!</p>
+                <p>With <span class="moves">0</span> moves and <span class="num-stars">3</span> stars</p>
+                <p>Completion time: <span class="timer">0:00</span></p>
+                <button class="play-again">Play Again!</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+    
+    <script src="js/wow.min.js"></script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
